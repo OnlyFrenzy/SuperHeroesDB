@@ -8,6 +8,7 @@
 import UIKit
 
 protocol PowerAppearanceViewModelProtocol {
+    
     func loadAppearance(completion: @escaping () -> Void)
     func loadPowerStats(completion: @escaping () -> Void)
     func didClickPowerAppearanceButton()
@@ -50,12 +51,24 @@ class PowerAppearanceViewModel: PowerAppearanceViewModelProtocol {
     }
     
     func appearance() -> String {
-        let appearance = " Gender: \(String(appearanceCharacter?.gender ?? "-")) \n Race: \(String(appearanceCharacter?.race ?? "-")) \n Height: \(String(appearanceCharacter?.height?[1] ?? "-")) \n Weight: \(String(appearanceCharacter?.weight?[1] ?? "-")) \n Eye color: \(String(appearanceCharacter?.eyeColor ?? "-")) \n Heir Color: \(String(appearanceCharacter?.hairColor ?? "-"))"
+        let gender = "Gender: \(String(appearanceCharacter?.gender ?? "-"))"
+        let race = "Race: \(String(appearanceCharacter?.race ?? "-"))"
+        let height = "Height: \(String(appearanceCharacter?.height?[1] ?? "-"))"
+        let weight = "Weight: \(String(appearanceCharacter?.weight?[1] ?? "-"))"
+        let eyeColor = "Eye color: \(String(appearanceCharacter?.eyeColor ?? "-"))"
+        let heirColor = "Heir Color: \(String(appearanceCharacter?.hairColor ?? "-"))"
+        let appearance = "\(gender)\n\(race)\n\(height)\n\(weight)\n\(eyeColor)\n\(heirColor)"
         return appearance
     }
     
     func powerStats() -> String {
-        let powerStats = " Intelligence: \(String(powerStatsCharacter?.intelligence ?? 0)) \n Strength: \(String(powerStatsCharacter?.strength ?? 0)) \n Speed: \(String(powerStatsCharacter?.speed ?? 0)) \n Durability: \(String( powerStatsCharacter?.durability ?? 0)) \n Power: \(String( powerStatsCharacter?.power ?? 0)) \n Combat: \(String( powerStatsCharacter?.combat ?? 0))"
+        let intelligence = "Intelligence: \(String(powerStatsCharacter?.intelligence ?? 0))"
+        let strength = "Strength: \(String(powerStatsCharacter?.strength ?? 0))"
+        let speed = "Speed: \(String(powerStatsCharacter?.speed ?? 0))"
+        let durability = "Durability: \(String( powerStatsCharacter?.durability ?? 0))"
+        let power = "Power: \(String( powerStatsCharacter?.power ?? 0))"
+        let combat = "Combat: \(String( powerStatsCharacter?.combat ?? 0))"
+        let powerStats = "\(intelligence)\n\(strength)\n\(speed)\n\(durability)\n\(power)\n\(combat)"
         return powerStats
     }
 }

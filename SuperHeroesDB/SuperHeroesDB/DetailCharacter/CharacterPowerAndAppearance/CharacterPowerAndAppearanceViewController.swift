@@ -27,14 +27,12 @@ class CharacterPowerAndAppearanceViewController: UIViewController {
             self.appearanceLabel.text = "Appearance"
             self.appearanceTextView.text = self.viewModel.appearance()
             dispatchGroup.leave()
-            //            self.downloadView.isHidden = true
         }
         dispatchGroup.enter()
         viewModel.loadPowerStats {
             self.powerStatsLabel.text = "Power & Stats"
             self.powerStatsTextView.text = self.viewModel.powerStats()
             dispatchGroup.leave()
-            //            self.downloadView.isHidden = true
         }
         
         dispatchGroup.notify(queue: DispatchQueue.main) {

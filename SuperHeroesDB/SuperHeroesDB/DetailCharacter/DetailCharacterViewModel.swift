@@ -8,11 +8,14 @@
 import UIKit
 
 protocol DetailListViewModelProtocol {
+    
     func loadCharacters(completion: @escaping () -> Void)
     func didClickPowerAppearanceButton()
     func name() -> String
     func fullName() -> String
     func characterImage() -> String
+    func buttonTitle() -> String
+    var title: String { get }
 }
 
 class DetailCharacterViewModel: DetailListViewModelProtocol {
@@ -53,4 +56,7 @@ class DetailCharacterViewModel: DetailListViewModelProtocol {
         return character?.images?.lg ?? ""
     }
     
+    func buttonTitle() -> String {
+        return "Power & Appearance"
+    }
 }

@@ -9,6 +9,7 @@ import Kingfisher
 import UIKit
 
 class CharacterTableViewCell: UITableViewCell, ConfigurableCellProtocol {
+    
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var portraitImageView: UIImageView!
 

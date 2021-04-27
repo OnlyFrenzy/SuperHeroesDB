@@ -33,7 +33,6 @@ class PersonsListTableViewDataSource: NSObject {
 
 extension PersonsListTableViewDataSource: UITableViewDataSource {
     
-    
     func numberOfSections(in _: UITableView) -> Int {
         return models.count
     }
@@ -53,8 +52,6 @@ extension PersonsListTableViewDataSource: UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
-    
 }
 
 extension PersonsListTableViewDataSource: UITableViewDelegate {
