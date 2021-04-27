@@ -26,8 +26,10 @@ class DetailCharacterViewController: UIViewController {
     }
     
     private func configure() {
+        
+        navigationItem.title = viewModel.name()
         nameLabel.text = viewModel.name()
-        powerAppearanceButton.setTitle("Power & Appearance", for: .normal)
+        powerAppearanceButton.setTitle(viewModel.buttonTitle(), for: .normal)
         fullNameLabel.text = viewModel.fullName()
         characterImageView.kf.setImage(with: URL(string: viewModel.characterImage()))
         powerAppearanceButton.addTarget(self, action: #selector(didClickPowerAppearanceButton), for: .touchUpInside)

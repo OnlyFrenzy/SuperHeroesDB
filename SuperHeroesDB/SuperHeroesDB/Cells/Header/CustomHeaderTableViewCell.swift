@@ -9,6 +9,8 @@ import UIKit
 
 class CustomHeaderTableViewCell: UITableViewHeaderFooterView, ConfigurableHeaderProtocol {
     
+    @IBOutlet private var turnButton: UIButton!
+    @IBOutlet private var titleLabel: UILabel!
     
     var turnButtonHandler: ((String, Int) -> Void)?
 
@@ -18,9 +20,6 @@ class CustomHeaderTableViewCell: UITableViewHeaderFooterView, ConfigurableHeader
 
     var headerButton: UIButton?
     var headerCount: Int?
-
-    @IBOutlet private var turnButton: UIButton!
-    @IBOutlet private var titleLabel: UILabel!
 
     func configureWithHeaderConfigurator(model: HeaderConfiguratorProtocol) -> UITableViewHeaderFooterView {
         titleLabel.text = model.headerIdentifier

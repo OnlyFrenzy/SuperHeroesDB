@@ -39,16 +39,17 @@ class PersonsListViewModel: PersonsListViewModelProtocol{
     }
     
     private func configureCharactersModels() -> [SectionModel] {
+        
         var charactersModels: [SectionModel] = []
-        var tmpCharacters: [CellConfiguratorProtocol] = []
+        var sectionCharacters: [CellConfiguratorProtocol] = []
         for index in 0 ..< characters.count {
             let character = SuperHero(name: characters[index].name!, portrait: characters[index].images!.lg!, id: characters[index].id!)
             character.selectionClosure = { [weak self] in
                 self?.pushDetailsHandler?(character.id)
             }
-            tmpCharacters.append(character)
+            sectionCharacters.append(character)
         }
-        charactersModels.append(SectionModel(sectionName: Header(headerCount: 0, headerIdentifier: "Characters"), sectionCells: tmpCharacters))
+        charactersModels.append(SectionModel(sectionName: Header(headerCount: 0, headerIdentifier: "Characters"), sectionCells: sectionCharacters))
         return charactersModels
     }
 }

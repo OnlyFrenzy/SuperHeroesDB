@@ -24,21 +24,18 @@ class PersonsListViewController: UIViewController {
     
     private func setupTableView(dataSource: PersonsListTableViewDataSource) {
         
-        headerConfig()
-        tableViewCellConfig()
+        tableViewConfig()
         navigationItem.title = viewModel.title
+        navigationItem.backButtonTitle = "Back"
         personsTableView.dataSource = dataSource
         personsTableView.delegate = dataSource
         personsTableView.reloadData()
         downloadView.isHidden = true
     }
     
-    private func headerConfig() {
+    private func tableViewConfig() {
         let headerNib = UINib(nibName: viewModel.headerIdentifier, bundle: nil)
         personsTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: viewModel.headerIdentifier)
-    }
-    
-    private func tableViewCellConfig() {
         let characterCellNib = UINib(nibName: CharacterTableViewCell.className, bundle: nil)
         personsTableView.register(characterCellNib, forCellReuseIdentifier: SuperHero.className)
     }
