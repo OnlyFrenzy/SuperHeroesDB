@@ -19,7 +19,7 @@ class DefaultCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = storyboard.instantiateViewController(identifier: PersonsListViewController.className) as! PersonsListViewController
+        guard let viewController = storyboard.instantiateViewController(identifier: PersonsListViewController.className) as? PersonsListViewController else { assertionFailure("PersonsListViewController is nil"); return }
         
         let viewModel = PersonsListViewModel(networkService: networkService, pushDetailsHandler: { id in
             self.pushDetailViewController(id: id)
@@ -30,7 +30,8 @@ class DefaultCoordinator: Coordinator {
     }
     
     func pushDetailViewController(id: Int) {
-        let detailViewController = storyboard.instantiateViewController(identifier: DetailCharacterViewController.className) as! DetailCharacterViewController
+        guard let detailViewController = storyboard.instantiateViewController(identifier: DetailCharacterViewController.className) as? DetailCharacterViewController else {
+            assertionFailure("DetailCharacterViewController is nil"); return }
         let detailViewModel = DetailCharacterViewModel(characterId: id, title: "", networkService: networkService) { id in
             self.pushPowerAndAppearanceViewController(id: id)
         }
@@ -41,7 +42,7 @@ class DefaultCoordinator: Coordinator {
     }
     
     func pushPowerAndAppearanceViewController(id: Int) {
-        let powerAppearanceViewController = storyboard.instantiateViewController(identifier: CharacterPowerAndAppearanceViewController.className) as! CharacterPowerAndAppearanceViewController
+        guard let powerAppearanceViewController = storyboard.instantiateViewController(identifier: CharacterPowerAndAppearanceViewController.className) as? CharacterPowerAndAppearanceViewController else { assertionFailure("CharacterPowerAndAppearanceViewController is nil"); return }
         let powerAppearanceViewModel = PowerAppearanceViewModel(characterId: id, title: "", networkService: networkService)
         
         powerAppearanceViewController.viewModel = powerAppearanceViewModel
