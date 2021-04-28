@@ -74,7 +74,6 @@ extension PersonsListTableViewDataSource: UITableViewDelegate {
             header.setTurnButtonHandler { [weak self] (headerText: String, headerCount: Int) in
                 guard let self = self else { return }
                 let currentSection = headerCount
-                print(currentSection)
                 if self.models[section].sectionStage == true {
                     self.models[section].sectionStage = false
                 } else {
