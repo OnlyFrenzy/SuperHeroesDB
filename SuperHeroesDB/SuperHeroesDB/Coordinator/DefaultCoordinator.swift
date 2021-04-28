@@ -30,8 +30,7 @@ class DefaultCoordinator: Coordinator {
     }
     
     func pushDetailViewController(id: Int) {
-        guard let detailViewController = storyboard.instantiateViewController(identifier: DetailCharacterViewController.className) as? DetailCharacterViewController else {
-            assertionFailure("DetailCharacterViewController is nil"); return }
+        guard let detailViewController = storyboard.instantiateViewController(identifier: DetailCharacterViewController.className) as? DetailCharacterViewController else { assertionFailure("DetailCharacterViewController is nil"); return }
         let detailViewModel = DetailCharacterViewModel(characterId: id, title: "", networkService: networkService) { id in
             self.pushPowerAndAppearanceViewController(id: id)
         }
