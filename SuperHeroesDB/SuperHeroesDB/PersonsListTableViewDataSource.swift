@@ -61,7 +61,7 @@ extension PersonsListTableViewDataSource: UITableViewDelegate {
     }
     
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+        return 82
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
