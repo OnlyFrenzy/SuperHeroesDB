@@ -8,7 +8,14 @@
 import Alamofire
 import Foundation
 
-class NetworkService {
+protocol NetworkServiceProtocol {
+    func requestLoad(completion: @escaping ([Character]) -> Void)
+    func detailRequestLoad(id: Int, completion: @escaping (DetailCharacter) -> Void)
+    func powerStatsRequestLoad(id: Int, completion: @escaping (PowerStats) -> Void)
+    func appearanceRequestLoad(id: Int, completion: @escaping (Appearance) -> Void)
+}
+
+class NetworkService: NetworkServiceProtocol {
     
     private let httpClient: HttpClient
     

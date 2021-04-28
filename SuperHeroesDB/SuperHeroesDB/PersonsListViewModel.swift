@@ -17,12 +17,12 @@ class PersonsListViewModel: PersonsListViewModelProtocol{
     
     let title: String = "Characters"
     let headerIdentifier = String(describing: CustomHeaderTableViewCell.self)
-    private let networkService: NetworkService
+    private let networkService: NetworkServiceProtocol
     private var dataSource: PersonsListTableViewDataSource!
     private var characters: [Character] = []
     private var pushDetailsHandler: ((Int) -> ())?
     
-    internal init(networkService: NetworkService, pushDetailsHandler: ((Int) -> ())? = nil) {
+    internal init(networkService: NetworkServiceProtocol, pushDetailsHandler: ((Int) -> ())? = nil) {
         self.networkService = networkService
         self.pushDetailsHandler = pushDetailsHandler
     }
