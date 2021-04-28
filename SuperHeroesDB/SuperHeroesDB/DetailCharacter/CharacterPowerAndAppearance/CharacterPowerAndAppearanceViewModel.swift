@@ -21,11 +21,11 @@ class PowerAppearanceViewModel: PowerAppearanceViewModelProtocol {
     private var pushPowerAndAppearanceHandler: ((Int) -> ())?
     private var characterId: Int
     var title: String = ""
-    private let networkService: NetworkService
+    private let networkService: NetworkServiceProtocol
     private var appearanceCharacter: Appearance?
     private var powerStatsCharacter: PowerStats?
     
-    internal init(characterId: Int, title: String, networkService: NetworkService, pushPowerAndAppearanceHandler: ((Int) -> ())? = nil) {
+    internal init(characterId: Int, title: String, networkService: NetworkServiceProtocol, pushPowerAndAppearanceHandler: ((Int) -> ())? = nil) {
         self.pushPowerAndAppearanceHandler = pushPowerAndAppearanceHandler
         self.characterId = characterId
         self.title = title
